@@ -1,0 +1,197 @@
+%  ====目录章节设置 ====
+\usepackage[center,pagestyles]{titlesec}
+\usepackage{apptools}
+\usepackage[toc,page,title,titletoc]{appendix}
+\setcounter{secnumdepth}{5}
+%  ++++章节标题格式设置++++
+\titleformat{\section}[hang]{\bfseries}{
+	\Large\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{%
+	\color{structurecolor}\Large\bfseries\filright}
+\titleformat{\subsection}[hang]{\bfseries}{
+	\large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
+	\color{structurecolor}\large\bfseries\filright}
+\titleformat{\subsubsection}[hang]{\bfseries}{
+	\large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
+	\color{structurecolor}\large\bfseries\filright}
+% ====常用宏包====
+\RequirePackage{makecell,lipsum,hologo,setspace}
+\RequirePackage{booktabs}
+\RequirePackage{multicol,multirow}
+% ++++插入图片设置++++
+\usepackage{graphics}
+\graphicspath{{./figure/}{./figures/}{./image/}{./images/}{./graphics/}{./graphic/}{./pictures/}{./picture/}}
+% ++++数学字体宏包++++
+\usepackage{amsmath,mathrsfs,amsfonts,amssymb}
+% ====行间距设置====
+\linespread{1.3}
+\renewcommand{\baselinestretch}{1.35} 
+% ====脚注环境设置====
+\AtBeginDocument{
+	\setlength{\abovedisplayskip}{3pt}
+	\setlength{\belowdisplayskip}{3pt}
+	\RequirePackage[flushmargin,stable]{footmisc}
+	\setlength{\footnotesep}{12pt}
+}
+% ====设置列表环境====
+\usepackage{enumerate}
+\usepackage[shortlabels,inline]{enumitem}
+% ====颜色设置====
+\usepackage{xcolor}
+\definecolor{structurecolor}{RGB}{0,120,2}
+\definecolor{main}{RGB}{0,120,2}%
+\definecolor{second}{RGB}{230,90,7}%
+\definecolor{third}{RGB}{0,160,152}%
+% ++++设置超链接的颜色++++
+\definecolor{winered}{rgb}{0.5,0,0}
+% ++++设置浮动体的某些主题色++++
+\usepackage[font=small,labelfont={bf,color=structurecolor}]{caption} 
+\captionsetup[table]{skip=3pt}
+\captionsetup[figure]{skip=3pt}
+% ====假文宏包====
+\usepackage{zhlipsum}
+\usepackage{lipsum}
+% ====字体设置====
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+
+%  ====设置页边距 ====
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	top=25.4mm, bottom=25.4mm,
+	headheight=2.17cm,
+	headsep=4mm,
+	footskip=12mm
+}
+%  ====设置参考文献格式 ====
+\usepackage[sort&compress]{natbib}
+\setlength{\bibsep}{0.0pt}
+\def\bibfont{\footnotesize}
+%  ====设置页眉页脚 ====
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyfoot[c]{\color{structurecolor}\scriptsize\thepage}
+\newcommand{\citshape}{\kaishu}
+\fancyhead[R]{\color{structurecolor}--\;\thepage\;--}
+%\fancyhead[L]{\color{structurecolor}\citshape\rightmark}
+%  ++++ 设置页眉页脚 ++++
+\renewcommand{\headrule}{\color{structurecolor}\hrule width\textwidth}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+% \renewcommand{\headrule}{}
+\fancypagestyle{plain}{\renewcommand{\headrulewidth}{0pt}\fancyhf{}\renewcommand{\headrule}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\, #1}{} }
+%\renewcommand{\chaptermark}[1]{\markboth{\chaptername \, #1\,}{}}
+%  ====设置公式环境 ====
+\numberwithin{equation}{section}
+%  ====自定义环境====
+%  +++++note环境+++++
+\newcommand{\notename}{笔记}
+\usepackage{bbding,manfnt} % 一些图标，如 \dbend
+\newenvironment{note}{
+	\par\noindent\makebox[-3pt][r]{
+		\scriptsize\color{red!90}\textdbend\quad}
+	\textbf{\color{second}\notename} \citshape}{\par}
+%  +++++introduction环境+++++
+\newcommand{\introductionname}{内容提要}
+\usepackage{multicol}
+\usepackage[most]{tcolorbox}
+\tcbset{
+	introductionsty/.style={
+		enhanced,
+		breakable,
+		colback=structurecolor!10,
+		colframe=structurecolor,
+		fonttitle=\bfseries,
+		colbacktitle=structurecolor,
+		fontupper=\citshape,
+		attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+		boxrule=0pt,
+		toprule=0.5pt,
+		bottomrule=0.5pt,
+		top=8pt,
+		before skip=8pt,
+		sharp corners
+	},
+}
+\newenvironment{introduction}[1][\introductionname]{
+	\begin{tcolorbox}[introductionsty,title={#1}]
+		\begin{multicols}{2}
+			\begin{itemize}[label=\textcolor{structurecolor}{\upshape\scriptsize\SquareShadowBottomRight}]}{
+			\end{itemize}
+		\end{multicols}
+\end{tcolorbox}}
+%  ====浮动体环境设置：自动居中小一号字====
+\usepackage{xpatch}
+\makeatletter
+\xpatchcmd\@floatboxreset{\normalsize}{\centering\small}{}{}
+\makeatother
+%  ====文档超链接设置 ====
+\usepackage{hyperref}
+\hypersetup{
+	breaklinks,
+	unicode,
+	linktoc=all,
+	bookmarksnumbered=true,
+	bookmarksopen=true,
+	pdfkeywords={Coffeelize},
+	colorlinks,
+	linkcolor=winered,
+	citecolor=winered,
+	urlcolor=winered,
+	plainpages=false,
+	pdfstartview=FitH,
+	pdfborder={0 0 0},
+	linktocpage
+}
+%  ====代码块样式设置====
+\usepackage{listings}
+\renewcommand{\ttdefault}{cmtt}
+\lstdefinestyle{mystyle}{
+	basicstyle=%
+	\ttfamily
+	\lst@ifdisplaystyle\small\fi
+}
+
+\lstset{basicstyle=\ttfamily,style=mystyle,breaklines=true}
+
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{frenchplum}{RGB}{190,20,83}
+%%% LaTeX代码高亮
+\lstset{language=[LaTeX]TeX,
+	texcsstyle=*\color{winered},
+	numbers=none,
+	mathescape,
+	breaklines=true,
+	keywordstyle=\color{winered},
+	commentstyle=\color{gray},
+	emph={elegantpaper,fontenc,fontspec,xeCJK,FiraMono,xunicode,newtxmath,figure,fig,image,img,table,itemize,enumerate,newtxtext,newtxtt,ctex,microtype,description,times,booktabs,tabular,PDFLaTeX,XeLaTeX,type1cm,BibTeX,device,color,mode,lang,amsthm,tcolorbox,titlestyle,cite,ctex,listings,base,math,scheme,toc,esint,chinesefont,amsmath,bibstyle,gbt7714,natbib},
+	emphstyle={\color{frenchplum}},
+	morekeywords={DeclareSymbolFont,SetSymbolFont,toprule,midrule,bottomrule,institute,version,includegraphics,setmainfont,setsansfont,setmonofont ,setCJKmainfont,setCJKsansfont,setCJKmonofont,RequirePackage,figref,tabref,email,maketitle,keywords,definecolor,extrainfo,logo,cover,subtitle,appendix,chapter,hypersetup,mainmatter,frontmatter,tableofcontents,elegantpar,heiti,kaishu,lstset,pagecolor,zhnumber,marginpar,part,equote,marginnote,bioinfo,datechange,listofchange,lvert,lastpage,songti,heiti,fangsong,setCJKfamilyfont,textbf},
+	frame=single,
+	tabsize=2,
+	rulecolor=\color{structurecolor},
+	framerule=0.2pt,
+	columns=flexible,
+	% backgroundcolor=\color{lightgrey}
+}
+%%% Java代码高亮
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\lstset{language=Java,
+	showspaces=false,
+	showtabs=false,
+	breaklines=true,
+	showstringspaces=false,
+	breakatwhitespace=true,
+	commentstyle=\color{pgreen},
+	keywordstyle=\color{pblue},
+	stringstyle=\color{pred},
+	basicstyle=\ttfamily,
+	moredelim=[il][\textcolor{pgrey}]{$$},
+	moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}

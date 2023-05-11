@@ -1,0 +1,69 @@
+\documentclass{ctexart}
+\usepackage{graphics}
+\usepackage{listings}
+\usepackage{coffeelize}
+%\usepackage[sort&compress]{gbt7714}
+%\bibliographystyle{gbt7714-numerical}
+
+\begin{document}
+%  ==== frontmatter ====
+\title{Coffeelize}
+\author{Coffeelize}
+%%% 生成目录
+%\tableofcontents
+%%% 新开一页
+%\clearpage
+
+%  ====正文开始====
+
+\section{写在开头}
+
+\begin{lstlisting}
+	//一行中可以同时声明多个变量
+	int cnt = 0, res = 0;
+	//if、else 中的语句若只有一条，可以不用写大括号
+	if(nums[i]==1) ++cnt;
+	else cnt = 0;
+\end{lstlisting}
+
+\begin{enumerate}
+	\item 一行中可以同时声明多个变量
+	\item 当if、else中的语句只有一条时，可以不用加大括号
+	\item 对于for循环，其中的临时变量i也需要声明其类型，只不过一般都是int型
+	\item 方法有返回值的话（非void），必然需要有return，否则编译报错
+\end{enumerate}
+
+
+
+\section{数组}
+
+\subsection{27移除元素}
+
+给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
+
+\begin{lstlisting}
+	class Solution {
+		public int removeElement(int[] nums, int val) {
+			int slow = 0;
+			int fast = 0;
+			for (fast = 0; fast < nums.length; fast++) {
+				//快指针指向的不是目标元素
+				if (nums[fast] != val) {
+					// 1、将快指针指向的元素赋值给慢指针位置
+					// 2、赋值完成后，slow++，慢指针向前移动一个位置
+					nums[slow++] = nums[fast];
+				}
+			}
+			return slow;
+		}
+	}
+\end{lstlisting}
+
+%\begin{note}
+%	最大整数：Integer.MAX\_VALUE
+%\end{note}
+
+
+
+%  ====正文结束====
+\end{document}
