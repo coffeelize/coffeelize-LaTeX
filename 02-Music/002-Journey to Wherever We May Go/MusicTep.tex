@@ -1,0 +1,194 @@
+\documentclass[12pt]{ctexart}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{fontspec}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usepackage{paracol}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+% 设置页面大小和边距
+\geometry{a4paper,left=1.5cm,right=1.5cm,top=2cm,bottom=2cm}
+
+% 设置背景为网格
+\AddToShipoutPictureBG{%
+	\begin{tikzpicture}[overlay,remember picture]
+		\draw[step=5mm, color=gray!10, line width=0.2mm] (current page.south west) grid (current page.north east);
+	\end{tikzpicture}%
+}
+
+% 设置页眉和页脚样式
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+\rfoot{\href{https://coffeelize.top/}{Design By Coffeelize}}
+
+% 设置字体
+\setmainfont{Times New Roman}
+\newfontfamily\zhfont{Source Han Serif CN}
+
+% 取消段落首行缩进
+\setlength{\parindent}{0pt}
+
+% 设置列间距和列宽比例
+\setlength{\columnsep}{0.5cm}
+\columnratio{0.6}
+
+\begin{document}
+	
+	\section*{The Wandering Star}
+	
+	\hspace{1em}
+	
+	\begin{paracol}{2}
+		
+		\begin{leftcolumn*}
+			
+			Through the days of passing years\\
+			I walk alone with all my thoughts\\
+			Softly suffocating as the\\
+			Numbers climb\\
+			I imagine better days\\
+			Taking solace in the hope of gently\\
+			Conquering the vastness of the\\
+			Oceans where I float\\
+			Among the endless waters crashing\\
+			Suddenly appears a boat\\
+			To my surprise a cry for help\\
+			Emerges from my throat\\
+			And I say\\
+			Hey\\
+			
+			I hope your boat is not destroying\\
+			All our friends who love to swim below\\
+			And they say\\
+			Hey\\
+			
+			It's just a simple rowboat made for\\
+			All who simply need a place to go\\
+			So I say\\
+			Hey\\
+			
+			I wish you would take me to\\
+			A destination far away from home\\
+			And they say\\
+			Hey\\
+			
+			Hop aboard and join us in a\\
+			Journey to wherever we may go\\
+			The vessel found a distant shore\\
+			Forgotten and remote\\
+			We mapped the maze of hidden trails and\\
+			Mountains capped with snow\\
+			The sick are never hungry now\\
+			The air is filled with sound\\
+			When heavy weather comes we run to\\
+			Tunnels underground\\
+			I found a place among the souls who\\
+			Offered me a rope\\
+			Thankful for the day my journey\\
+			Came across the boat\\
+			So if you're feeling cast away and drifting\\
+			Off to parts unknown\\
+			Keep scanning the horizon for a\\
+			Vessel will be shown\\
+			And you'll say\\
+			Hey\\
+			
+			I hope your boat is not destroying\\
+			All our friends who love to swim below\\
+			And they say\\
+			Hey\\
+			
+			It's just a simple rowboat made for\\
+			All who simply need a place to go\\
+			So you say\\
+			Hey\\
+			
+			I wish you would take me to\\
+			A destination far away from home\\
+			And they say\\
+			Hey\\
+			
+			Hop aboard and join us in a\\
+			Journey to wherever we may go\\
+			
+		\end{leftcolumn*}
+		
+		\switchcolumn
+		
+		% 右侧中文
+		\zhfont
+		
+		随着年岁的流逝\\
+		我独自走着，沉浸在我的思绪中\\
+		当数字逐渐增加时\\
+		我感到窒息\\
+		我想象更好的日子\\
+		在希望中找到安慰，温柔地\\
+		征服我漂浮的\\
+		广阔的海洋\\
+		在无尽的水中\\
+		突然出现了一艘船\\
+		出乎我的意料，我呼救\\
+		从我的喉咙中发出\\
+		我说\\
+		嘿\\
+		
+		我希望你的船不会伤害\\
+		所有喜欢在水下游泳的朋友\\
+		他们说\\
+		嘿\\
+		
+		这只是一个简单的划艇\\
+		为那些需要去的地方而制\\
+		所以我说\\
+		嘿\\
+		
+		我希望你能带我去\\
+		远离家乡的地方\\
+		他们说\\
+		嘿\\
+		
+		跳上来，和我们一起\\
+		去我们可能去的任何地方\\
+		这艘船找到了一个遥远的海岸\\
+		被遗忘和偏远\\
+		我们绘制了隐藏的小径和\\
+		雪顶的山脉\\
+		生病的人现在再也不饿了\\
+		空气充满了声音\\
+		当暴风雨来临时，我们跑到\\
+		地下的隧道\\
+		我在那些提供绳子的灵魂中找到了一个地方\\
+		感谢我在旅途中遇到了那艘船\\
+		所以，如果你感到被遗弃，漂流\\
+		到未知的地方\\
+		不断地寻找地平线上的\\
+		会出现的船只\\
+		你会说\\
+		嘿\\
+		
+		我希望你的船不会伤害\\
+		所有喜欢在水下游泳的朋友\\
+		他们说\\
+		嘿\\
+		
+		这只是一个简单的划艇\\
+		为那些需要去的地方而制\\
+		所以你说\\
+		嘿\\
+		
+		我希望你能带我去\\
+		远离家乡的地方\\
+		他们说\\
+		嘿\\
+		
+		跳上来，和我们一起\\
+		去我们可能去的任何地方\\
+		
+	\end{paracol}
+	
+\end{document}
